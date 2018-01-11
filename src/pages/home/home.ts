@@ -9,7 +9,7 @@ import { ItemsDetailPage } from "../../pages/items-detail/items-detail";
 import { AboutPage } from "../../pages/about/about";
 import { AlertPage } from "../../pages/alert/alert";
 import { SlideitemsPage } from "../../pages/slideitems/slideitems";
-
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'page-home',
@@ -40,8 +40,14 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public restapiService: RestapiServiceProvider,
     public restApi: ApigetnewsProvider,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private statusBar: StatusBar
   ) {
+        // let status bar overlay webview
+    //this.statusBar.overlaysWebView(true);
+
+    // set status bar to white
+    
     
     if(this.slideData.length > 0) {
       this.slideLength = true;

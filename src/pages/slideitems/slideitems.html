@@ -31,11 +31,11 @@
             
             <ion-card-content >
                     <ion-card-title>
-                            <h2 style="color:Tomato;">  {{person.Header}} </h2>
+                            <h2 style="font-weight: bold; color:rgb(27, 1, 58);">  {{person.Header}} </h2>
                            </ion-card-title>
                            
                              <p><ion-icon name="time"></ion-icon>  {{person.datetime}} </p>            
-                             <p><strong color="danger">โดย</strong> : {{ person.subOfficeName }}</p>
+                             <p><strong color="purple1">โดย</strong> : {{ person.subOfficeName }}</p>
                            <hr>
 
                 <p text-wrap [innerHTML]="person.Detail" ></p>  

@@ -91,6 +91,7 @@ export class MyApp {
       var timePeriodToExit=2000;
 
       this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#311B92');
       this.splashScreen.hide();
       
       this.oneSignal.startInit('4442b043-855d-4d92-98ac-18fc124c152e', '473607584954');

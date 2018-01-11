@@ -23,3 +23,15 @@
 // *{
 //     font-family: Prompt;
 // }
+
+@font-face {
+    font-family: 'Prompt-Light';
+    src: url('../assets/fonts/Prompt-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  * {
+    font-family: 'Prompt-Light';
+  }
+  

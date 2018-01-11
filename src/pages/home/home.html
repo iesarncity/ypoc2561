@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header color="navx">
   <ion-navbar color="purple2">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -30,7 +30,7 @@
     </ion-toolbar> -->
 </ion-header>
 
-<ion-content >
+<ion-content style="background-color: rgb(220, 198, 255)" >
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content 
             pullingIcon="arrow-dropdown"
@@ -41,7 +41,9 @@
       </ion-refresher>
 
       <ion-list class="margin-bottom" >
-      <ion-slides pager="true"  autoplay="3000" loop="true" effect="fade" speed="1500" *ngIf="slideData.length > 1">
+      <ion-slides pager="true"  autoplay="3000" loop="true" effect="fade" speed="1500" *ngIf="slideData.length > 1"
+          class="card-background-page"
+        >
           <ion-slide *ngFor="let slide of slideData"
            style="
           position: relative;
@@ -54,6 +56,9 @@
             width: 100%;
             height: 100%;"
              (click)="Viewslide(slide)" />
+
+    <!-- <div class="card-title">{{ slide.Header }}</div> -->
+    <!-- <div class="card-subtitle description">{{ slide.Header }}</div> -->
             <!-- <div class='description'>
                 <p class='description_content'>{{ slide.Header }}</p>
               </div> -->
@@ -65,19 +70,44 @@
         <div class="swiper-button-next"></div> -->
       </ion-list>
 
-  <ion-list class="no-padding">
-      <ion-item-divider color="purple3" id="cameraTabDefaultPage-list-item-divider1">
-          ข่าวล่าสุด (Last News)
+  <!-- <ion-list class="no-padding">
+      <ion-item-divider color="purplex" id="cameraTabDefaultPage-list-item-divider1">
+        <h3 style="font-weight: bold; color:#EDE7F6;">ข่าวล่าสุด (Last News)</h3>
         </ion-item-divider>
       <ion-item detail-push *ngFor="let item of items" (click)="Viewperson(item)">
         <ion-thumbnail item-start>
             <img *ngIf="!(item.Pics)" src= "http://www.yasothonpoc.com/webservice/images/no_image.jpg" />
             <img *ngIf="item.Pics" [src]= "'http://www.yasothonpoc.com/upload/thumb/' + item.Pics " />
         </ion-thumbnail>
-        <div text-wrap class="cut-text-multi"><h3>{{item.Header}}</h3></div>
+        <div text-wrap class="cut-text-multi" style="font-weight: bold; color:rgb(0, 0, 0);"><h3>{{item.Header}}</h3></div>
         <p><ion-icon name="time"></ion-icon>  {{ item.datetime }}</p>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
+    <ion-item-divider color="purplex" id="cameraTabDefaultPage-list-item-divider1">
+      <h3 style="font-weight: bold; color:#EDE7F6;">ข่าวล่าสุด (Last News)</h3>
+      </ion-item-divider>
+    <ion-card *ngFor="let item of items" (click)="Viewperson(item)">
+      
+      <div class="image-wrapper">
+        <img *ngIf="!(item.Pics)" src= "http://ccwc.org/wp-content/themes/ccwc-theme/images/no-image-available.png" />
+        <img *ngIf="item.Pics" [src]= "'http://www.yasothonpoc.com/upload/thumb/' + item.Pics "  />  
+      </div>
+      
+     <ion-card-content class="margin-top">
+        
+          <h3 color="danger"><strong> {{item.Header}} </strong></h3>
+     
+      <ion-list >
+          <ion-item class="movie-info">
+              <p style="font-weight: bold; color:rgb(61, 1, 151);"> <ion-icon name="person"></ion-icon>   ข่าว : {{ item.subOfficeName }} </p>
+              <p color="danger"> <ion-icon name="time"></ion-icon>   {{ item.datetime }} </p>
+              <ion-icon name="md-more" item-end></ion-icon>
+          </ion-item>
+    
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+
 
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
       <ion-infinite-scroll-content 
